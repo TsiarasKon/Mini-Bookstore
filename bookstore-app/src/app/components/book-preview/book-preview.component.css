@@ -1,0 +1,9 @@
+.book-card {
+    width: 200px;
+    margin: 10px;
+}
+
+::ng-deep .ant-card-meta-title {
+    text-align: center;
+    white-space: normal !important;
+}

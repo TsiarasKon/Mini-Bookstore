@@ -32,6 +32,9 @@
               "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
               "src/styles.css"
             ],
+            "allowedCommonJsDependencies": [
+               "@ant-design/colors"
+            ],
             "scripts": []
           },
           "configurations": {

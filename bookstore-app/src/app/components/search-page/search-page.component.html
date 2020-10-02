@@ -1,3 +1,5 @@
-<p>
-  search-page works!
-</p>
+<div class="book-container">
+  <div *ngFor="let book of books">
+    <book-preview [book]="book"></book-preview>
+  </div>
+</div>

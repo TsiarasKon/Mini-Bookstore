@@ -21,11 +21,22 @@ import { NzResultModule } from 'ng-zorro-antd/result';
 import { SearchPageComponent } from './components/search-page/search-page.component';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzRateModule } from 'ng-zorro-antd/rate';
+import { BookService } from './services/book-service/book.service';
+import { BookPreviewComponent } from './components/book-preview/book-preview.component';
+
 
 registerLocaleData(en);
 
 @NgModule({
-    declarations: [AppComponent, LayoutComponent, SearchPageComponent, NotFoundPageComponent],
+    declarations: [
+        AppComponent,
+        LayoutComponent,
+        SearchPageComponent,
+        NotFoundPageComponent,
+        BookPreviewComponent
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -38,8 +49,10 @@ registerLocaleData(en);
         NzIconModule,
         NzButtonModule,
         NzResultModule,
+        NzCardModule,
+        NzRateModule,
     ],
-    providers: [{ provide: NZ_I18N, useValue: en_US }],
+    providers: [{ provide: NZ_I18N, useValue: en_US }, BookService],
     bootstrap: [AppComponent],
 })
 export class AppModule { }

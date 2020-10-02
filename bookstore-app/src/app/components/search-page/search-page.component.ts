@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BookService } from 'src/app/services/book-service/book.service';
+import { IBook } from 'src/app/types';
 
 @Component({
   selector: 'app-search-page',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private bookService: BookService) { }
+
+  books: IBook[];
 
   ngOnInit() {
+    this.books = this.bookService.getBooks();
   }
 
 }

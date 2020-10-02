@@ -1,4 +1,4 @@
-export interface IBook {
+export interface IBookDetails {
     isbn: string,
     title: string,
     subtitle: string,
@@ -8,4 +8,10 @@ export interface IBook {
     pages: number,
     description: string,
     website: string,
+    imageURI?: string, 
+}
+
+export interface IBook {
+    bookDetails: IBookDetails,
+    rating: number,
 }
