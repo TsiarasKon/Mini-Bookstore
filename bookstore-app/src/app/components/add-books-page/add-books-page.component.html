@@ -1,0 +1,38 @@
+<h2 class="page-header">Add New Book</h2>
+<!-- <form nz-form [formGroup]="addForm" class="book-form" (ngSubmit)="submitForm()">
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Please input your username!">
+      <nz-input-group>
+        <input type="text" nz-input formControlName="title" placeholder="Title" />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <button nz-button class="book-form-margin" [nzType]="'primary'">SAVE</button>
+</form> -->
+
+<form class="p-3" [formGroup]="addForm" (ngSubmit)="submitForm()">
+
+
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <label class="control-label required" for="userEmail">Email</label>
+      <input class="form-control" id="userEmail" formControlName="userEmail" minlength="10">
+      <div
+        *ngIf="addForm.controls.userEmail.errors?.required && (addForm.controls.userEmail.dirty || addForm.controls.userEmail.touched)">
+        <div class="text-danger">Required</div>
+      </div>
+      <div
+        *ngIf="addForm.controls.userEmail.errors?.email && (addForm.controls.userEmail.dirty && addForm.controls.userEmail.touched)">
+        <div class="text-danger">Not an email</div>
+      </div>
+      <div
+        *ngIf="addForm.controls.userEmail.errors?.minlength && addForm.controls.userEmail.dirty && addForm.controls.userEmail.touched">
+        <div class="text-danger">Min</div>
+      </div>
+    </div>
+
+    <app-upload-image (imageUploaded)="onImageUpload($event)"></app-upload-image>
+  </div>
+
+  <button nz-button type="submit" nzType="primary" [nzSize]="'large'">Save</button>
+</form>

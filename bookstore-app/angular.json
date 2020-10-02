@@ -33,7 +33,7 @@
               "src/styles.css"
             ],
             "allowedCommonJsDependencies": [
-               "@ant-design/colors"
+              "@ant-design/colors"
             ],
             "scripts": []
           },

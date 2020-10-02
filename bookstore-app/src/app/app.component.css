@@ -1,0 +1,6 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.page-header {
+    margin-top: -24px;
+    margin-bottom: 24px;
+}

@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { IBook } from 'src/app/types';
+import { Component, Input } from '@angular/core';
+import { IBook } from 'src/app/shared/types';
 
 @Component({
   selector: 'book-preview',

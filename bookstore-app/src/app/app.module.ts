@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { en_US } from 'ng-zorro-antd/i18n';
@@ -25,7 +25,16 @@ import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzRateModule } from 'ng-zorro-antd/rate';
 import { BookService } from './services/book-service/book.service';
 import { BookPreviewComponent } from './components/book-preview/book-preview.component';
-
+import { AddBooksPageComponent } from './components/add-books-page/add-books-page.component';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzUploadModule } from 'ng-zorro-antd/upload';
+import { NzTagModule } from 'ng-zorro-antd/tag';
+import { NzMessageModule, NzMessageService } from 'ng-zorro-antd/message';
+import { UploadImageComponent } from './shared/components/upload-image/upload-image.component';
 
 registerLocaleData(en);
 
@@ -35,12 +44,15 @@ registerLocaleData(en);
         LayoutComponent,
         SearchPageComponent,
         NotFoundPageComponent,
-        BookPreviewComponent
+        BookPreviewComponent,
+        AddBooksPageComponent,
+        UploadImageComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         FormsModule,
+        ReactiveFormsModule,
         HttpClientModule,
         BrowserAnimationsModule,
         NzLayoutModule,
@@ -51,8 +63,16 @@ registerLocaleData(en);
         NzResultModule,
         NzCardModule,
         NzRateModule,
+        NzFormModule,
+        NzInputModule,
+        NzInputNumberModule,
+        NzSelectModule,
+        NzDatePickerModule,
+        NzUploadModule,
+        NzTagModule,
+        NzMessageModule,
     ],
-    providers: [{ provide: NZ_I18N, useValue: en_US }, BookService],
+    providers: [{ provide: NZ_I18N, useValue: en_US }, BookService, NzMessageService],
     bootstrap: [AppComponent],
 })
 export class AppModule { }
