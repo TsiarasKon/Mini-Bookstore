@@ -10,18 +10,22 @@ import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 
-import { LayoutComponent } from './layout/layout.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzResultModule } from 'ng-zorro-antd/result';
+import { SearchPageComponent } from './components/search-page/search-page.component';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
 
 registerLocaleData(en);
 
 @NgModule({
-    declarations: [AppComponent, LayoutComponent],
+    declarations: [AppComponent, LayoutComponent, SearchPageComponent, NotFoundPageComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -32,6 +36,8 @@ registerLocaleData(en);
         NzMenuModule,
         NzBreadCrumbModule,
         NzIconModule,
+        NzButtonModule,
+        NzResultModule,
     ],
     providers: [{ provide: NZ_I18N, useValue: en_US }],
     bootstrap: [AppComponent],

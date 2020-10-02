@@ -3,17 +3,20 @@
         <div class="logo"></div>
         <!-- TODO: Logo -->
         <ul nz-menu nzTheme="dark" nzMode="horizontal">
-            <li nz-menu-item>Search</li>
-            <li nz-menu-item>Add Books</li>
+            <li nz-menu-item><a routerLink="/search">Search</a></li>
+            <li nz-menu-item><a routerLink="/add">Add Books</a></li>
         </ul>
     </nz-header>
     <nz-content>
         <nz-breadcrumb>
+            <!-- TODO-->
             <nz-breadcrumb-item>Home</nz-breadcrumb-item>
             <nz-breadcrumb-item>List</nz-breadcrumb-item>
             <nz-breadcrumb-item>App</nz-breadcrumb-item>
         </nz-breadcrumb>
-        <div class="inner-content">Content</div>
+        <div class="inner-content">
+            <router-outlet class="inner-content"></router-outlet>
+        </div>
     </nz-content>
     <nz-footer>Exercise Bookstore &nbsp;&ndash;&nbsp; Tsiaras ©2020</nz-footer>
 </nz-layout>
