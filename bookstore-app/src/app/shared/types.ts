@@ -4,17 +4,14 @@
  */ 
 export interface IBook {
     id?: number,
-    isbn: string,       // isbn13
+    isbn13: string,
     isbn10?: string,
     title: string,
-    subtitle?: string,
-    author?: string,
-    authorArray?: string[],
-    published: string,      // date/year
+    authors: string[],
+    publishedYear: number,
     publisher: string,
     pages: number,
     description: string,
-    website?: string,
     imageURI?: string, 
     categories: string[],
     rating?: number,

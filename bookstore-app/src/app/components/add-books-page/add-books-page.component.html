@@ -27,8 +27,7 @@
           This field is required
         </div>
         <div *ngIf="addForm.controls.description.errors?.maxlength">
-          The maximum length for this field is {{ addForm.controls.description.errors.maxlength.requiredLength }}
-          characters
+          The maximum length for this field is {{ addForm.controls.description.errors.maxlength.requiredLength }} characters
         </div>
         <div *ngIf="addForm.controls.description.errors?.pattern">
           Description must start with an uppercase letter
@@ -89,11 +88,11 @@
         </div>
       </div>
 
-      <label class="control-label required" for="published">Published Year</label>
-      <nz-date-picker class="form-control" formControlName="published" nzMode="year" style="width: 150px;">
+      <label class="control-label required" for="publishedYear">Published Year</label>
+      <nz-date-picker class="form-control" formControlName="publishedYear" nzMode="year" style="width: 150px;">
       </nz-date-picker>
-      <div *ngIf="addForm.controls.published.dirty && addForm.controls.published.touched" class="text-danger">
-        <div *ngIf="addForm.controls.published.errors?.required">
+      <div *ngIf="addForm.controls.publishedYear.dirty && addForm.controls.publishedYear.touched" class="text-danger">
+        <div *ngIf="addForm.controls.publishedYear.errors?.required">
           This field is required
         </div>
       </div>
@@ -104,7 +103,7 @@
         <div *ngIf="addForm.controls.pages.errors?.required">
           This field is required
         </div>
-        <div *ngIf="addForm.controls.pages.errors?.min">
+        <div *ngIf="addForm.controls.pages.errors?.min || addForm.controls.pages.errors?.pattern">
           The number of pages must be a positive integer
         </div>
         <div *ngIf="addForm.controls.pages.errors?.max">
@@ -126,10 +125,13 @@
         <div *ngIf="addForm.controls.rating.errors?.max">
           The maximum rating is {{ addForm.controls.rating.errors.max.max }}
         </div>
+        <div *ngIf="addForm.controls.rating.errors?.pattern">
+          The only decimal rating allowed is in the form of .5
+        </div>
       </div>
 
       <label class="control-label required" for="isbn10">ISBN-10</label>
-      <input class="form-control" id="isbn10" formControlName="isbn10" type="number" pattern="[0-9]{10}">
+      <input class="form-control" id="isbn10" formControlName="isbn10" type="number">
       <div *ngIf="addForm.controls.isbn10.dirty && addForm.controls.isbn10.touched" class="text-danger">
         <div *ngIf="addForm.controls.isbn10.errors?.required">
           This field is required
@@ -139,13 +141,13 @@
         </div>
       </div>
 
-      <label class="control-label required" for="isbn">ISBN-13</label>
-      <input class="form-control" id="isbn" formControlName="isbn" type="number" pattern="[0-9]{13}">
-      <div *ngIf="addForm.controls.isbn.dirty && addForm.controls.isbn.touched" class="text-danger">
-        <div *ngIf="addForm.controls.isbn.errors?.required">
+      <label class="control-label required" for="isbn13">ISBN-13</label>
+      <input class="form-control" id="isbn13" formControlName="isbn13" type="number">
+      <div *ngIf="addForm.controls.isbn13.dirty && addForm.controls.isbn13.touched" class="text-danger">
+        <div *ngIf="addForm.controls.isbn13.errors?.required">
           This field is required
         </div>
-        <div *ngIf="addForm.controls.isbn.errors?.pattern">
+        <div *ngIf="addForm.controls.isbn13.errors?.pattern">
           A valid ISBN-13 consists of exactly 13 digits
         </div>
       </div>

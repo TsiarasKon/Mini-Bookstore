@@ -43,11 +43,21 @@ export class AddBooksPageComponent implements OnInit {
         Validators.minLength(5),
         Validators.maxLength(60)
       ]],
-      published: [null, [Validators.required]],
-      pages: [null, [Validators.required, Validators.min(0), Validators.max(9999)]],
-      rating: ['', [Validators.required, Validators.min(0), Validators.max(5)]],
+      publishedYear: [null, [Validators.required]],
+      pages: [null, [
+        Validators.required,
+        Validators.min(0),
+        Validators.max(9999),
+        Validators.pattern('^[0-9]*$')]
+      ],
+      rating: ['', [
+        Validators.required,
+        Validators.min(0),
+        Validators.max(5),
+        Validators.pattern('^[0-9]*(.5)?$')]
+      ],
       isbn10: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
-      isbn: ['', [Validators.required, Validators.pattern('^[0-9]{13}$')]],
+      isbn13: ['', [Validators.required, Validators.pattern('^[0-9]{13}$')]],
     });
   }
 
@@ -72,13 +82,13 @@ export class AddBooksPageComponent implements OnInit {
     }
     if (this.addForm.valid) {
       const { title, description, categories, authors, publisher,
-        published, pages, rating, isbn10, isbn } = this.addForm.controls;
+        publishedYear, pages, rating, isbn10, isbn13 } = this.addForm.controls;
       const newBook: IBook = {
-        isbn: isbn.value,
+        isbn13: isbn13.value,
         isbn10: isbn10.value,
         title: title.value,
-        authorArray: authors.value,
-        published: published.value.getFullYear(),
+        authors: authors.value,
+        publishedYear: publishedYear.value.getFullYear(),
         publisher: publisher.value,
         pages: pages.value,
         description: description.value,
