@@ -8,15 +8,22 @@ import { TestCategories } from 'src/app/test-data/misc';
   providedIn: 'root'
 })
 export class BookService {
+  constructor() { }
 
-  Books: IBook[] = books.books.map(el => generateBook(el)) 
+  Books: IBook[] = books.books.map((el, i) => ({ ...generateBook(el), id: i })) 
   Categories: string[] = TestCategories
 
-  constructor() { }
+  private getNextBookId(): number {
+    return Math.max(...this.Books.map(el => el.id)) + 1;
+  }
 
   // The following would normally send a GET to the back-end:
   getBooks(): IBook[] {
     return this.Books;
+  }
+
+  getBookById(id: number): IBook {
+    return this.Books.find(el => el.id === id);
   }
 
   getCategories(): string[] {
@@ -25,6 +32,6 @@ export class BookService {
 
   // This would normally send a POST to the back-end, with an appropriate request body:
   postBook(book: IBook): void {
-    this.Books.push(book);
+    this.Books.push({ ...book, id: this.getNextBookId() });
   }
 }

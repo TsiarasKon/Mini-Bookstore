@@ -3,6 +3,7 @@
  * and the test data given, since there exist quite a few discrepancies between them.abs
  */ 
 export interface IBook {
+    id?: number,
     isbn: string,       // isbn13
     isbn10?: string,
     title: string,

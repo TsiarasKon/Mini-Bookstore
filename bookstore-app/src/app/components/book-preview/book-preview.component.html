@@ -1,4 +1,4 @@
-<nz-card nzHoverable [nzCover]="coverTemplate" [nzActions]="[description]" class="book-card">
+<nz-card nzHoverable [nzCover]="coverTemplate" [nzActions]="[description]" class="book-card" [routerLink]="['/book', book.id]">
   <nz-card-meta nzTitle="{{ book.title }}"></nz-card-meta>
 </nz-card>
 <ng-template #coverTemplate>

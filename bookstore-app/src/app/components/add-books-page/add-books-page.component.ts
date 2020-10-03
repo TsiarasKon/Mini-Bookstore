@@ -88,7 +88,7 @@ export class AddBooksPageComponent implements OnInit {
       };
       console.log('New Book', newBook);
       this.bookService.postBook(newBook);
-      this.router.navigate(['/'])    // TODO: to book details?
+      this.router.navigate(['/'])   // redirect after book creation
     }
   }
 
