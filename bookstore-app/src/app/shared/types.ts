@@ -15,4 +15,5 @@ export interface IBook {
     imageURI?: string, 
     categories: string[],
     rating?: number,
+    favorite?: boolean,
 }

@@ -33,3 +33,7 @@
     text-align: center;
     white-space: nowrap !important;
 }
+
+.lead {
+    font-size: 1.1rem !important;
+}

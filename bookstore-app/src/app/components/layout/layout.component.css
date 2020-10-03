@@ -45,3 +45,7 @@ nz-footer {
     background: #001529;
     color: darkgray;
 }
+
+.ant-layout-header {
+    z-index: 1;
+}

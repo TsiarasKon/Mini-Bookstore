@@ -19,6 +19,13 @@
     <div class="col-8 pl-4">
       <h2>{{ book.title }}</h2>
       <p class="lead">{{ book.description }}</p>
+      <button type="button" class="btn btn-outline-danger btn-sm" (click)="toggleFavorite()" *ngIf="!isFavorite"><i
+          nz-icon nzType="heart" nzTheme="fill"></i> Favorite</button>
+      <button type="button" class="btn btn-danger btn-sm" (click)="toggleFavorite()" *ngIf="isFavorite"><i nz-icon
+          nzType="heart" nzTheme="fill"></i> Unfavorite</button>
+      <button type="button" class="btn btn-outline-info btn-sm ml-3" (click)="onShareClick()">Share</button>
+
+      <button type="button" class="btn btn-primary btn-block mt-3" style="width: 50%;">BUY</button>
     </div>
   </div>
 </div>
