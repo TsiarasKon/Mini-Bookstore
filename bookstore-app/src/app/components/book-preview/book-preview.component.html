@@ -2,7 +2,7 @@
   <nz-card-meta nzTitle="{{ book.title }}"></nz-card-meta>
 </nz-card>
 <ng-template #coverTemplate>
-  <img alt="example" src="{{ book.imageURI ? book.imageURI : 'assets/placeholder-image.png' }}" />
+  <img class="card-img" alt="example" src="{{ book.imageURI ? book.imageURI : 'assets/placeholder-image.png' }}" />
 </ng-template>
 <ng-template #description>
   <nz-rate [ngModel]="book.rating" nzDisabled nzAllowHalf></nz-rate>

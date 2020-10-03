@@ -6,7 +6,7 @@ import { IBook } from 'src/app/shared/types';
 @Component({
   selector: 'app-book-details-page',
   templateUrl: './book-details-page.component.html',
-  styleUrls: ['./book-details-page.component.css']
+  styleUrls: ['./book-details-page.component.css', '../../app.component.css']
 })
 export class BookDetailsPageComponent implements OnInit {
 

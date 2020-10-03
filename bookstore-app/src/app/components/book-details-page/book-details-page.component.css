@@ -1,0 +1,15 @@
+.details-img {
+    height: 360px;
+    width: 280px;
+}
+
+.details-rate ::ng-deep .ant-rate {
+    font-size: 35px;
+    margin-left: 35px;
+}
+
+.author-name {
+    display: inline-block;
+    margin-left: 8px;
+    margin-top: 16px;
+}

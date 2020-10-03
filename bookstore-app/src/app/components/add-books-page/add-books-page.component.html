@@ -1,7 +1,7 @@
 <h2 class="page-header">Add New Book</h2>
-<form class="p-3" [formGroup]="addForm" (ngSubmit)="submitForm()">
-  <div class="form-row">
-    <div class="form-group col-md-7">
+<form class="container p-3" [formGroup]="addForm" (ngSubmit)="submitForm()">
+  <div class="form-row row">
+    <div class="form-group col-8">
       <label class="control-label required" for="title">Title</label>
       <input class="form-control" id="title" formControlName="title">
       <div *ngIf="addForm.controls.title.dirty && addForm.controls.title.touched" class="text-danger">
@@ -65,13 +65,13 @@
 
     </div>
 
-    <div class="col-md-5 text-center mt-5">
+    <div class="form-group col-4 text-center mt-5">
       <app-upload-image (imageUploaded)="onImageUpload($event)"></app-upload-image>
     </div>
   </div>
 
-  <div class="form-row">
-    <div class="form-group col-md-7">
+  <div class="form-row row">
+    <div class="form-group col-8">
       <label class="control-label required" for="publisher">Publisher</label>
       <input class="form-control" id="publisher" formControlName="publisher">
       <div *ngIf="addForm.controls.publisher.dirty && addForm.controls.publisher.touched" class="text-danger">
@@ -112,7 +112,7 @@
       </div>
     </div>
 
-    <div class="col-md-5">
+    <div class="form-group col-4">
       <label class="control-label required" for="rating">Rating</label>
       <input class="form-control" id="rating" formControlName="rating" type="number" min="0" max="5" step="0.5">
       <div *ngIf="addForm.controls.rating.dirty && addForm.controls.rating.touched" class="text-danger">

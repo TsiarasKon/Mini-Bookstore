@@ -1,11 +1,23 @@
-<nz-result nzStatus="404" *ngIf="!book" 
-  nzTitle="Not found" 
-  nzSubTitle="No book exists with id {{ bookId }}"
-  >
+<nz-result nzStatus="404" *ngIf="!book" nzTitle="Not found" nzSubTitle="No book exists with id {{ bookId }}">
   <div nz-result-extra>
     <button nz-button nzType="primary"><a routerLink="/">Back Home</a></button>
   </div>
 </nz-result>
-<div *ngIf="book">
-  TODO
+<div *ngIf="book" class="container">
+  <div class="row">
+    <div class="col-4">
+      <img class="details-img" alt="example"
+        src="{{ book.imageURI ? book.imageURI : 'assets/placeholder-image.png' }}" />
+      <br />
+      <div *ngFor="let author of book.authors">
+        <nz-avatar nzSize="large" nzIcon="user"></nz-avatar>
+        <h4 class="author-name">{{ author }}</h4>
+      </div>
+      <nz-rate class="details-rate mt-1" [ngModel]="book.rating" nzDisabled nzAllowHalf></nz-rate>
+    </div>
+
+    <div class="col-8">
+    </div>
+  </div>
 </div>
+<!-- TODO: Book Carousel -->
