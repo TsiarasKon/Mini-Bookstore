@@ -5,6 +5,7 @@ import { BookDetailsPageComponent } from './components/book-details-page/book-de
 import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
 import { SearchPageComponent } from './components/search-page/search-page.component';
 
+// Regarding breadcrumbs' configuration, see related comment in app/components/layout.component.ts
 const routes: Routes = [
   { path: 'search', component: SearchPageComponent },
   { path: 'add', component: AddBooksPageComponent },
