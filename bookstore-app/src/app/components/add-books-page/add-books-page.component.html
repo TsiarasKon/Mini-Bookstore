@@ -63,15 +63,15 @@
         </div>
       </div>
 
-      <label class="control-label required" for="author">Authors</label><br />
+      <label class="control-label required" for="authors">Authors</label><br />
       <app-tag-extendable-array (tagArray)="updateAuthors($event)" [addMsg]="' Add Author'" [maxLen]="3">
       </app-tag-extendable-array>
-      <div *ngIf="addForm.controls.author.dirty && addForm.controls.author.touched" class="text-danger">
-        <div *ngIf="addForm.controls.author.errors?.required">
+      <div *ngIf="addForm.controls.authors.dirty && addForm.controls.authors.touched" class="text-danger">
+        <div *ngIf="addForm.controls.authors.errors?.required">
           At least 1 author is required
         </div>
-        <div *ngIf="addForm.controls.author.errors?.maxlength">
-          The maximum allowed authors are {{ addForm.controls.author.errors.maxlength.requiredLength }}
+        <div *ngIf="addForm.controls.authors.errors?.maxlength">
+          The maximum allowed authors are {{ addForm.controls.authors.errors.maxlength.requiredLength }}
         </div>
       </div>
 
@@ -163,6 +163,7 @@
     </div>
   </div>
 
-  <button nz-button type="submit" nzType="primary" [nzSize]="'large'">Save</button>
-  <!-- <button nz-button type="submit" nzType="primary" [nzSize]="'large'" disabled="!addForm.valid">Save</button> -->
+  <div class="text-center">
+    <button nz-button type="submit" nzType="primary" [nzSize]="'large'">Save</button>
+  </div>
 </form>

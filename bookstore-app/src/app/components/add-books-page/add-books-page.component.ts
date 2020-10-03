@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NzMessageService } from 'ng-zorro-antd/message';
+import { Router } from '@angular/router';
 import { BookService } from 'src/app/services/book-service/book.service';
-import { TestCategories } from 'src/app/test-data/misc';
+import { IBook } from 'src/app/shared/types';
 
 @Component({
   selector: 'app-add-books-page',
@@ -11,7 +11,7 @@ import { TestCategories } from 'src/app/test-data/misc';
 })
 export class AddBooksPageComponent implements OnInit {
 
-  constructor(private bookService: BookService, private fb: FormBuilder, private msg: NzMessageService) { }
+  constructor(private bookService: BookService, private fb: FormBuilder, private router: Router) { }
 
   addForm!: FormGroup;
   imageUri: string;
@@ -37,7 +37,7 @@ export class AddBooksPageComponent implements OnInit {
         Validators.pattern('^[A-Z].*')]     // regex for starting with an uppercase letter
       ],
       categories: [[], [Validators.required, Validators.maxLength(4)]],
-      author: [[], [Validators.required, Validators.maxLength(3)]],
+      authors: [[], [Validators.required, Validators.maxLength(3)]],
       publisher: ['', [
         Validators.required,
         Validators.minLength(5),
@@ -61,21 +61,35 @@ export class AddBooksPageComponent implements OnInit {
   }
 
   updateAuthors(authorsArray: string[]): void {
-    this.addForm.controls.author.patchValue(authorsArray);
+    this.addForm.controls.authors.patchValue(authorsArray);
   }
 
   submitForm(): void {
-    // TODO: construct IBook
-    // this.bookService.postBook(newBook);
-    console.log(this.addForm.valid);
-    console.log(this.addForm);
     for (const i in this.addForm.controls) {
       this.addForm.controls[i].markAsDirty();
       this.addForm.controls[i].markAsTouched();
       this.addForm.controls[i].updateValueAndValidity();
     }
-    console.log(this.addForm.controls)
-    console.log(this.imageUri)
+    if (this.addForm.valid) {
+      const { title, description, categories, authors, publisher,
+        published, pages, rating, isbn10, isbn } = this.addForm.controls;
+      const newBook: IBook = {
+        isbn: isbn.value,
+        isbn10: isbn10.value,
+        title: title.value,
+        authorArray: authors.value,
+        published: published.value.getFullYear(),
+        publisher: publisher.value,
+        pages: pages.value,
+        description: description.value,
+        imageURI: this.imageUri,
+        categories: categories.value,
+        rating: rating.value,
+      };
+      console.log('New Book', newBook);
+      this.bookService.postBook(newBook);
+      this.router.navigate(['/'])    // TODO: to book details?
+    }
   }
 
 }

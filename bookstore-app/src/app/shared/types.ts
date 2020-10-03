@@ -7,7 +7,8 @@ export interface IBook {
     isbn10?: string,
     title: string,
     subtitle?: string,
-    author: string,
+    author?: string,
+    authorArray?: string[],
     published: string,      // date/year
     publisher: string,
     pages: number,

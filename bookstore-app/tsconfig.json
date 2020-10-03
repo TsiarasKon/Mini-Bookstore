@@ -12,6 +12,8 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "importHelpers": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "target": "es2015",
     "module": "es2020",
     "lib": [
