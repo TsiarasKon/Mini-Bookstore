@@ -1,6 +1,17 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
 .page-header {
-    margin-top: -24px;
-    margin-bottom: 24px;
+  margin-top: -24px;
+  margin-bottom: 24px;
+}
+
+.control-label.required:after {
+  color: #d00;
+  content: "*";
+  position: absolute;
+  margin-left: 5px;
+}
+
+.form-control {
+  margin-bottom: 10px;
 }
