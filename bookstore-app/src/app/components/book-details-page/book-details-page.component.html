@@ -16,8 +16,19 @@
       <nz-rate class="details-rate mt-1" [ngModel]="book.rating" nzDisabled nzAllowHalf></nz-rate>
     </div>
 
-    <div class="col-8">
+    <div class="col-8 pl-4">
+      <h2>{{ book.title }}</h2>
+      <p class="lead">{{ book.description }}</p>
     </div>
   </div>
 </div>
-<!-- TODO: Book Carousel -->
+<h3 *ngIf="book" class="page-header mb-2 mt-3">Other Books you may like</h3>
+<nz-carousel nzAutoPlay [nzAutoPlaySpeed]="5000" [nzEnableSwipe]="false">
+  <div nz-carousel-content *ngFor="let booksArray of carouselBooksArray">
+    <div class="book-container mt-3">
+      <div *ngFor="let b of booksArray">
+        <book-preview [book]="b" [customWidth]="200" [customHeight]="226" [showRating]="false"></book-preview>
+      </div>
+    </div>
+  </div>
+</nz-carousel>

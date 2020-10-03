@@ -1,13 +1,8 @@
 .book-card {
-    width: 200px;
     margin: 10px;
-}
-
-.card-img {
-    height: 256px;
 }
 
 ::ng-deep .ant-card-meta-title {
     text-align: center;
-    white-space: normal !important;
+    white-space: normal;
 }

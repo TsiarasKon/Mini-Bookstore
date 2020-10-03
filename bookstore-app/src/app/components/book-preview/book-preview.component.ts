@@ -8,4 +8,7 @@ import { IBook } from 'src/app/shared/types';
 })
 export class BookPreviewComponent {
   @Input() book: IBook;
+  @Input() customWidth = 200;
+  @Input() customHeight = 256;
+  @Input() showRating = true;
 }

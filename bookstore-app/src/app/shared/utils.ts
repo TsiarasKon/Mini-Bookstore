@@ -23,3 +23,10 @@ export const generateBook = (book): IBook => {
         rating: generateRandomRating(),
     }
 }
+
+// Generator function to split an array into chuncks
+export function* chunks(arr, n) {
+    for (let i = 0; i < arr.length; i += n) {
+        yield arr.slice(i, i + n);
+    }
+}
