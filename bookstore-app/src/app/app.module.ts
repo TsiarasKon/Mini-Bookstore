@@ -35,6 +35,7 @@ import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzMessageModule, NzMessageService } from 'ng-zorro-antd/message';
 import { UploadImageComponent } from './shared/components/upload-image/upload-image.component';
+import { TagExtendableArrayComponent } from './shared/components/tag-extendable-array/tag-extendable-array.component';
 
 registerLocaleData(en);
 
@@ -47,6 +48,7 @@ registerLocaleData(en);
         BookPreviewComponent,
         AddBooksPageComponent,
         UploadImageComponent,
+        TagExtendableArrayComponent,
     ],
     imports: [
         BrowserModule,

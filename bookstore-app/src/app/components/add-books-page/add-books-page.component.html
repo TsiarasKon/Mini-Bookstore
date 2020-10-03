@@ -46,15 +46,42 @@
         </div>
       </div>
 
+      <label class="control-label">
+        <label class="required" for="categories">Categories</label>
+        <div class="text-secondary">Select from the existing ones or write your own!</div>
+      </label>
+      <nz-select nzMode="tags" nzPlaceHolder="Tag Mode" formControlName="categories">
+        <nz-option *ngFor="let option of categoriesOptions" [nzLabel]="option.label" [nzValue]="option.value">
+        </nz-option>
+      </nz-select>
+      <div *ngIf="addForm.controls.categories.dirty && addForm.controls.categories.touched" class="text-danger">
+        <div *ngIf="addForm.controls.categories.errors?.required">
+          At least 1 category is required
+        </div>
+        <div *ngIf="addForm.controls.categories.errors?.maxlength">
+          The maximum allowed categories are {{ addForm.controls.categories.errors.maxlength.requiredLength }}
+        </div>
+      </div>
 
+      <label class="control-label required" for="author">Authors</label><br />
+      <app-tag-extendable-array (tagArray)="updateAuthors($event)" [addMsg]="' Add Author'" [maxLen]="3">
+      </app-tag-extendable-array>
+      <div *ngIf="addForm.controls.author.dirty && addForm.controls.author.touched" class="text-danger">
+        <div *ngIf="addForm.controls.author.errors?.required">
+          At least 1 author is required
+        </div>
+        <div *ngIf="addForm.controls.author.errors?.maxlength">
+          The maximum allowed authors are {{ addForm.controls.author.errors.maxlength.requiredLength }}
+        </div>
+      </div>
 
     </div>
 
-    <div class="col-md-5">
+    <div class="col-md-5 text-center mt-5">
       <app-upload-image (imageUploaded)="onImageUpload($event)"></app-upload-image>
     </div>
   </div>
-  
+
   <div class="form-row">
     <div class="form-group col-md-7">
       <label class="control-label required" for="publisher">Publisher</label>
@@ -111,7 +138,7 @@
           The maximum rating is {{ addForm.controls.rating.errors.max.max }}
         </div>
       </div>
-    
+
       <label class="control-label required" for="isbn10">ISBN-10</label>
       <input class="form-control" id="isbn10" formControlName="isbn10" type="number" pattern="[0-9]{10}">
       <div *ngIf="addForm.controls.isbn10.dirty && addForm.controls.isbn10.touched" class="text-danger">
@@ -122,7 +149,7 @@
           A valid ISBN-10 consists of exactly 10 digits
         </div>
       </div>
-    
+
       <label class="control-label required" for="isbn">ISBN-13</label>
       <input class="form-control" id="isbn" formControlName="isbn" type="number" pattern="[0-9]{13}">
       <div *ngIf="addForm.controls.isbn.dirty && addForm.controls.isbn.touched" class="text-danger">

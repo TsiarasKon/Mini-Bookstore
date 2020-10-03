@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { NzUploadFile } from 'ng-zorro-antd/upload';
-import { Observable, Observer } from 'rxjs';
 import { BookService } from 'src/app/services/book-service/book.service';
+import { TestCategories } from 'src/app/test-data/misc';
 
 @Component({
   selector: 'app-add-books-page',
@@ -17,7 +16,14 @@ export class AddBooksPageComponent implements OnInit {
   addForm!: FormGroup;
   imageUri: string;
 
+  categoriesOptions: Array<{ label: string; value: string }> = [];
+
   ngOnInit(): void {
+    this.initializeForm();
+    this.categoriesOptions = this.bookService.getCategories().map(el => ({ label: el, value: el }));
+  }
+
+  initializeForm(): void {
     this.addForm = this.fb.group({
       title: ['', [
         Validators.required,
@@ -31,7 +37,7 @@ export class AddBooksPageComponent implements OnInit {
         Validators.pattern('^[A-Z].*')]     // regex for starting with an uppercase letter
       ],
       categories: [[], [Validators.required, Validators.maxLength(4)]],
-      author: ['', [Validators.required]],    // TODO: list
+      author: [[], [Validators.required, Validators.maxLength(3)]],
       publisher: ['', [
         Validators.required,
         Validators.minLength(5),
@@ -39,7 +45,7 @@ export class AddBooksPageComponent implements OnInit {
       ]],
       published: [null, [Validators.required]],
       pages: [null, [Validators.required, Validators.min(0), Validators.max(9999)]],
-      rating: ['', [Validators.min(0), Validators.max(5)]],
+      rating: ['', [Validators.required, Validators.min(0), Validators.max(5)]],
       isbn10: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       isbn: ['', [Validators.required, Validators.pattern('^[0-9]{13}$')]],
     });
@@ -52,6 +58,10 @@ export class AddBooksPageComponent implements OnInit {
 
   onImageUpload(imgBase64: string) {
     this.imageUri = imgBase64;
+  }
+
+  updateAuthors(authorsArray: string[]): void {
+    this.addForm.controls.author.patchValue(authorsArray);
   }
 
   submitForm(): void {
@@ -67,7 +77,5 @@ export class AddBooksPageComponent implements OnInit {
     console.log(this.addForm.controls)
     console.log(this.imageUri)
   }
-
-  // For image upload:
 
 }

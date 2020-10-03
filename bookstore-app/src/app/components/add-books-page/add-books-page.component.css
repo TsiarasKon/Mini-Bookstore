@@ -5,3 +5,7 @@
 .book-form-margin {
   margin-bottom: 16px;
 }
+
+nz-select {
+  width: 100%;
+}

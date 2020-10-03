@@ -3,7 +3,7 @@
   (nzChange)="handleChange($event)">
   <ng-container *ngIf="!imageUri">
     <i class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></i>
-    <div class="ant-upload-text">Upload</div>
+    <div class="ant-upload-text">&nbsp;Import image</div>
   </ng-container>
   <img *ngIf="imageUri" [src]="imageUri" style="width: 100%" />
 </nz-upload>
