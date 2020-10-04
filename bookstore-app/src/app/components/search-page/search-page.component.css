@@ -43,6 +43,10 @@ nz-select {
 }
 
 .rate-input {
-    padding: 6px !important;
-    background-color: white;
+  padding: 6px !important;
+  background-color: white;
+}
+
+nz-spin {
+    margin-top: 60px;
 }

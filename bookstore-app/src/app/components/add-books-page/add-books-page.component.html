@@ -36,7 +36,7 @@
 
       <label class="control-label">
         <label class="required" for="categories">Categories</label>
-        <div class="text-secondary">Select from the existing ones or write your own!</div>
+        <div class="text-secondary"><i>Select from the existing ones or write your own!</i></div>
       </label>
       <nz-select nzMode="tags" nzPlaceHolder="Tag Mode" formControlName="categories">
         <nz-option *ngFor="let option of categoriesOptions" [nzLabel]="option.label" [nzValue]="option.value">
@@ -70,7 +70,7 @@
     </div>
   </div>
 
-  <div class="form-row row">
+  <div class="form-row row" style="margin-top: -15px;">
     <div class="form-group col-8">
       <label class="control-label required" for="publisher">Publisher</label>
       <input class="form-control" id="publisher" formControlName="publisher">
