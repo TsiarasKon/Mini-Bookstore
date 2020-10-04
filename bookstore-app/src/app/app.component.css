@@ -15,3 +15,7 @@ label.required:after {
 .control-label {
   margin-top: 15px;
 }
+
+input:placeholder-shown {
+  font-style: italic;
+}

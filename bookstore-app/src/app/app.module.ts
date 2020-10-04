@@ -40,6 +40,7 @@ import { BookDetailsPageComponent } from './components/book-details-page/book-de
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
+import { CartService } from './services/cart-service/cart.service';
 
 registerLocaleData(en);
 
@@ -82,7 +83,12 @@ registerLocaleData(en);
         NzCarouselModule,
         NzBadgeModule,
     ],
-    providers: [{ provide: NZ_I18N, useValue: en_US }, BookService, NzMessageService],
+    providers: [
+        { provide: NZ_I18N, useValue: en_US },
+        BookService,
+        NzMessageService,
+        CartService,
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule { }

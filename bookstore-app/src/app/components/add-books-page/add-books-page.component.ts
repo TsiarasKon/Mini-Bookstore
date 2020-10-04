@@ -61,11 +61,6 @@ export class AddBooksPageComponent implements OnInit {
     });
   }
 
-  isFormValid(): boolean {
-    console.log(this.addForm.valid);
-    return this.addForm.valid;
-  }
-
   onImageUpload(imgBase64: string) {
     this.imageUri = imgBase64;
   }

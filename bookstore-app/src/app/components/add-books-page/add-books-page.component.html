@@ -1,4 +1,4 @@
-<h2 class="page-header">Add New Book</h2>
+<h2 class="page-header text-center">Add New Book</h2>
 <form class="container p-3" [formGroup]="addForm" (ngSubmit)="submitForm()">
   <div class="form-row row">
     <div class="form-group col-8">
@@ -21,7 +21,7 @@
       </div>
 
       <label class="control-label required" for="title">Description</label>
-      <input class="form-control" id="description" formControlName="description">
+      <textarea class="form-control" id="description" formControlName="description" rows="3"></textarea>
       <div *ngIf="addForm.controls.description.dirty && addForm.controls.description.touched" class="text-danger">
         <div *ngIf="addForm.controls.description.errors?.required">
           This field is required

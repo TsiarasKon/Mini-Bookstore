@@ -11,7 +11,8 @@ export class CartService {
   private emitIncCart = new Subject<any>();
   changeEmitted$ = this.emitIncCart.asObservable();
 
-  emitBuyClicked() {
+  // Of course, this function would normally carry as an argument the book('s id) itself
+  emitBuyClicked(): void {
     this.emitIncCart.next();
   }
 
