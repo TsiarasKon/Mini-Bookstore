@@ -19,7 +19,7 @@ export const generateBook = (book): IBook => {
         pages: book.pages,
         description: book.description,
         // imageURI: TODO,
-        categories: [],
+        categories: ['Programming'],
         rating: generateRandomRating(),
     }
 }

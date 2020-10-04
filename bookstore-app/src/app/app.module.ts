@@ -39,6 +39,7 @@ import { TagExtendableArrayComponent } from './shared/components/tag-extendable-
 import { BookDetailsPageComponent } from './components/book-details-page/book-details-page.component';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzCarouselModule } from 'ng-zorro-antd/carousel';
+import { NzBadgeModule } from 'ng-zorro-antd/badge';
 
 registerLocaleData(en);
 
@@ -79,6 +80,7 @@ registerLocaleData(en);
         NzMessageModule,
         NzAvatarModule,
         NzCarouselModule,
+        NzBadgeModule,
     ],
     providers: [{ provide: NZ_I18N, useValue: en_US }, BookService, NzMessageService],
     bootstrap: [AppComponent],

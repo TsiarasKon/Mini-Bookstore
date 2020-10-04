@@ -5,5 +5,6 @@ export const TestCategories = [
     'History',
     'Crime',
     'Politics',
-    'Fiction'
+    'Fiction',
+    'Programming',
 ]

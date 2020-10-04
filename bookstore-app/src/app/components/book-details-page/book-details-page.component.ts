@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { BookService } from 'src/app/services/book-service/book.service';
+import { CartService } from 'src/app/services/cart-service/cart.service';
 import { IBook } from 'src/app/shared/types';
 import { chunks } from 'src/app/shared/utils';
 
@@ -12,7 +13,12 @@ import { chunks } from 'src/app/shared/utils';
 })
 export class BookDetailsPageComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private bookService: BookService, private message: NzMessageService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private bookService: BookService,
+    private message: NzMessageService,
+    private cartService: CartService
+  ) { }
 
   bookId: number;
   book: IBook;
@@ -38,6 +44,11 @@ export class BookDetailsPageComponent implements OnInit {
   onShareClick(): void {
     this.message.remove();
     this.message.success("Let's assume that this button shared something somewhere!", { nzDuration: 4000 });
+  }
+
+  onBuyClicked(): void {
+    this.cartService.emitBuyClicked();
+    this.message.success(`'${this.book.title}' was added to cart!`);
   }
 
 }

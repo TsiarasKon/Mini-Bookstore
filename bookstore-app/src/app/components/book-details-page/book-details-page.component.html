@@ -19,17 +19,34 @@
     <div class="col-8 pl-4">
       <h2>{{ book.title }}</h2>
       <p class="lead">{{ book.description }}</p>
-      <button type="button" class="btn btn-outline-danger btn-sm" (click)="toggleFavorite()" *ngIf="!isFavorite"><i
-          nz-icon nzType="heart" nzTheme="fill"></i> Favorite</button>
-      <button type="button" class="btn btn-danger btn-sm" (click)="toggleFavorite()" *ngIf="isFavorite"><i nz-icon
-          nzType="heart" nzTheme="fill"></i> Unfavorite</button>
-      <button type="button" class="btn btn-outline-info btn-sm ml-3" (click)="onShareClick()">Share</button>
-
-      <button type="button" class="btn btn-primary btn-block mt-3" style="width: 50%;">BUY</button>
+      <div class="mb-3">
+        <button type="button" class="btn btn-outline-danger btn-sm" (click)="toggleFavorite()" *ngIf="!isFavorite"><i
+            nz-icon nzType="heart" nzTheme="fill"></i> Favorite</button>
+        <button type="button" class="btn btn-danger btn-sm" (click)="toggleFavorite()" *ngIf="isFavorite"><i nz-icon
+            nzType="heart" nzTheme="fill"></i> Unfavorite</button>
+        <button type="button" class="btn btn-outline-info btn-sm ml-3" (click)="onShareClick()">Share</button>
+      </div>
+      <p>
+        <strong>Categories: </strong><nz-tag *ngFor="let cat of book.categories">{{ cat }}</nz-tag> <br />
+      </p>
+      <p>
+        <strong>Published Year: </strong> {{ book.publishedYear }} <br />
+        <strong>Number of Pages: </strong> {{ book.pages }}
+      </p>
+      <p><strong>Publisher: </strong> {{ book.publisher }} </p>
+      <p>
+        <strong>ISBN-10: </strong> {{ book.isbn10 ? book.isbn10 : '-' }} <br />
+        <strong>ISBN-13: </strong> {{ book.isbn13 }}
+      </p>
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <button type="button" class="btn btn-primary btn-block" (click)="onBuyClicked()">BUY</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-<h3 *ngIf="book" class="page-header mb-2 mt-3">Other Books you may like</h3>
+<h4 *ngIf="book" class="page-header mb-2 mt-5">Other Books you may like</h4>
 <nz-carousel nzAutoPlay [nzAutoPlaySpeed]="5000" [nzEnableSwipe]="false">
   <div nz-carousel-content *ngFor="let booksArray of carouselBooksArray">
     <div class="book-container mt-3">

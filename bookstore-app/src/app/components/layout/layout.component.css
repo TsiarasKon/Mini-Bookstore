@@ -49,3 +49,15 @@ nz-footer {
 .ant-layout-header {
     z-index: 1;
 }
+
+li {
+    font-size: 17px;
+}
+
+.item-right {
+    float: right;
+}
+
+::ng-deep .ant-badge-count {
+    transform: scale(0.88) translate(5%,-50%);
+}
