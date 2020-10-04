@@ -28,7 +28,7 @@ export const includesCaseIns = (str1: string, str2: string): boolean => {
     return str1.toLowerCase().includes(str2.toLowerCase());
 }
 
-// Generator function to split an array into chuncks
+// Generator function to split an array into chunks
 export function* chunks(arr, n) {
     for (let i = 0; i < arr.length; i += n) {
         yield arr.slice(i, i + n);

@@ -18,7 +18,6 @@ export class LayoutComponent {
     constructor(router: Router, cartService: CartService) {
         router.events.subscribe((val) => {
             if (val instanceof NavigationEnd) {
-                console.log(val.url)
                 switch (val.url) {
                     case '/':
                         this.breadcrumbsList = [];

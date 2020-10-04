@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd/message';
 import { BookService } from 'src/app/services/book-service/book.service';
 import { IBook } from 'src/app/shared/types';
 
@@ -11,7 +12,12 @@ import { IBook } from 'src/app/shared/types';
 })
 export class AddBooksPageComponent implements OnInit {
 
-  constructor(private bookService: BookService, private fb: FormBuilder, private router: Router) { }
+  constructor(
+    private bookService: BookService,
+    private fb: FormBuilder,
+    private router: Router,
+    private message: NzMessageService
+  ) { }
 
   addForm!: FormGroup;
   imageUri: string;
@@ -91,9 +97,9 @@ export class AddBooksPageComponent implements OnInit {
         categories: categories.value,
         rating: rating.value,
       };
-      console.log('New Book', newBook);
       this.bookService.postBook(newBook);
-      this.router.navigate(['/'])   // redirect after book creation
+      this.router.navigate(['/']);   // redirect after book creation
+      this.message.success(`Book '${newBook.title}' added successfully!`);
     }
   }
 

@@ -47,6 +47,7 @@
   </div>
 </div>
 <h4 *ngIf="book" class="page-header mb-2 mt-5">Other Books you may like</h4>
+<h4 *ngIf="!book" class="page-header mb-2 mt-5">But fear not! Here are some Books you may like</h4>
 <nz-carousel nzAutoPlay [nzAutoPlaySpeed]="5000" [nzEnableSwipe]="false">
   <div nz-carousel-content *ngFor="let booksArray of carouselBooksArray">
     <div class="book-container mt-3">

@@ -33,10 +33,16 @@ export class BookService {
   // This would normally send a POST to the back-end, with an appropriate request body:
   postBook(book: IBook): void {
     this.Books.push({ ...book, id: this.getNextBookId() });
+    // also post any new categories:
+    for (let cat of book.categories) {
+      if (!this.Categories.includes(cat)) {
+        this.Categories.push(cat);
+      }
+    }
   }
 
   // With the below we have persisting favorites:
   toggleBookFavorite(bookId: number, newFav: boolean): void {
-    this.Books = this.Books.map(el => el.id === bookId ? { ...el, favorite: newFav } : el)
+    this.Books = this.Books.map(el => el.id === bookId ? { ...el, favorite: newFav } : el);
   }
 }

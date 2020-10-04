@@ -30,8 +30,7 @@ export class BookDetailsPageComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.bookId = +params.get("id");    // retrieve book id from the URL
       this.book = this.bookService.getBookById(this.bookId);
-      this.isFavorite = this.book.favorite;
-      console.log(this.book);
+      this.isFavorite = this.book?.favorite;
     })
     // We would normally use a personalized subset of the total books based on some recommendation algorithm
     this.carouselBooksArray = [...chunks(this.bookService.getBooks(), 4)];
