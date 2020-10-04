@@ -1,11 +1,11 @@
 .book-form {
-  max-width: 300px;
+    max-width: 300px;
 }
 
 .book-form-margin {
-  margin-bottom: 16px;
+    margin-bottom: 16px;
 }
 
 nz-select {
-  width: 100%;
+    width: 100%;
 }

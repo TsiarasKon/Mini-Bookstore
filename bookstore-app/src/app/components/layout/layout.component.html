@@ -1,18 +1,21 @@
 <nz-layout class="layout">
     <nz-header>
-        <div class="logo"><a routerLink="/"><img class="logo-img" alt="logo" src="assets/img/logo.png"></a></div>
+        <div class="logo">
+            <a routerLink="/"><img class="logo-img" alt="logo" src="assets/img/logo.png" /></a>
+        </div>
         <ul nz-menu nzTheme="dark" nzMode="horizontal">
             <li nz-menu-item><a routerLink="/search">Search</a></li>
             <li nz-menu-item><a routerLink="/add">Add Book</a></li>
             <li nz-menu-item class="item-right">
-                <a routerLink="/login">Login &nbsp;<i nz-icon nzType="login" nzTheme="outline" style="font-size: 19px;"></i>
+                <a routerLink="/login"
+                    >Login &nbsp;<i nz-icon nzType="login" nzTheme="outline" style="font-size: 19px"></i>
                 </a>
             </li>
             <li nz-menu-item class="item-right">
                 <a routerLink="/cart">
                     My Cart &nbsp;
                     <nz-badge [nzCount]="cartNum" [nzOverflowCount]="9">
-                        <i nz-icon nzType="shopping-cart" nzTheme="outline" style="font-size: 21px;"></i>
+                        <i nz-icon nzType="shopping-cart" nzTheme="outline" style="font-size: 21px"></i>
                     </nz-badge>
                 </a>
             </li>

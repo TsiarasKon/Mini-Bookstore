@@ -1,44 +1,48 @@
 <h2 class="page-header text-center mb-3">Search to find your new book</h2>
 
 <form class="ant-advanced-search-form container p-3" [formGroup]="searchForm" (ngSubmit)="submitForm()">
-  <div class="form-row row">
-    <div class="form-group col-12">
-      <input class="form-control" id="description" formControlName="anyField"
-        placeholder="Search by Title, Authors, Publisher or ISBN">
+    <div class="form-row row">
+        <div class="form-group col-12">
+            <input
+                class="form-control"
+                id="description"
+                formControlName="anyField"
+                placeholder="Search by Title, Authors, Publisher or ISBN"
+            />
+        </div>
     </div>
-  </div>
 
-  <div class="form-row row">
-    <div class="form-group col-5">
-      <label for="categories">Categories</label>
-      <nz-select nzMode="multiple" nzPlaceHolder="Select any number of categories" formControlName="categories">
-        <nz-option *ngFor="let item of categoriesOptions" [nzLabel]="item" [nzValue]="item"></nz-option>
-      </nz-select>
+    <div class="form-row row">
+        <div class="form-group col-5">
+            <label for="categories">Categories</label>
+            <nz-select nzMode="multiple" nzPlaceHolder="Select any number of categories" formControlName="categories">
+                <nz-option *ngFor="let item of categoriesOptions" [nzLabel]="item" [nzValue]="item"></nz-option>
+            </nz-select>
+        </div>
+        <div class="form-group col-3 ml-2 mr-2">
+            <label for="publishedYearRange">Published Year Range</label>
+            <nz-range-picker nzMode="year" formControlName="publishedYearRange"></nz-range-picker>
+        </div>
+        <div class="form-group col-3">
+            <label for="minRating" style="margin-bottom: 0.35rem">Minimum Rating</label>
+            <nz-rate formControlName="minRating" nzAllowHalf class="ant-advanced-search-form rate-input"></nz-rate>
+        </div>
     </div>
-    <div class="form-group col-3 ml-2 mr-2">
-      <label for="publishedYearRange">Published Year Range</label>
-      <nz-range-picker nzMode="year" formControlName="publishedYearRange"></nz-range-picker>
-    </div>
-    <div class="form-group col-3">
-      <label for="minRating" style="margin-bottom: 0.35rem;">Minimum Rating</label>
-      <nz-rate formControlName="minRating" nzAllowHalf class="ant-advanced-search-form rate-input"></nz-rate>
-    </div>
-  </div>
 
-  <div class="text-right">
-    <button class="btn btn-secondary btn-sm mr-2" (click)="resetForm()">Clear</button>
-    <button class="btn btn-primary" type="submit">Search</button>
-  </div>
+    <div class="text-right">
+        <button class="btn btn-secondary btn-sm mr-2" (click)="resetForm()">Clear</button>
+        <button class="btn btn-primary" type="submit">Search</button>
+    </div>
 </form>
 <div class="search-result-list">
-  <nz-spin *ngIf="resultsLoading" nzSimple [nzSize]="'large'"></nz-spin>
-  <div *ngIf="!resultsLoading" class="book-container">
-    <p *ngIf="!books.length" class="text-secondary mt-5">
-      No books were found. <br />
-      Try expanding your search criteria.
-    </p>
-    <div *ngFor="let book of books">
-      <book-preview [book]="book"></book-preview>
+    <nz-spin *ngIf="resultsLoading" nzSimple [nzSize]="'large'"></nz-spin>
+    <div *ngIf="!resultsLoading" class="book-container">
+        <p *ngIf="!books.length" class="text-secondary mt-5">
+            No books were found. <br />
+            Try expanding your search criteria.
+        </p>
+        <div *ngFor="let book of books">
+            <book-preview [book]="book"></book-preview>
+        </div>
     </div>
-  </div>
 </div>

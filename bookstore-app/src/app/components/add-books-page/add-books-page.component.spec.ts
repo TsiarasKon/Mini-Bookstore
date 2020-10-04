@@ -6,23 +6,22 @@ import { DebugElement } from '@angular/core';
 import { AddBooksPageComponent } from './add-books-page.component';
 
 describe('AddBooksPageComponent', () => {
-  let component: AddBooksPageComponent;
-  let fixture: ComponentFixture<AddBooksPageComponent>;
+    let component: AddBooksPageComponent;
+    let fixture: ComponentFixture<AddBooksPageComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ AddBooksPageComponent ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [AddBooksPageComponent],
+        }).compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(AddBooksPageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(AddBooksPageComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

@@ -59,7 +59,7 @@ li {
 }
 
 ::ng-deep .ant-badge-count {
-    transform: scale(0.88) translate(5%,-50%);
+    transform: scale(0.88) translate(5%, -50%);
 }
 
 .logo {

@@ -1,21 +1,21 @@
-@import "~bootstrap/dist/css/bootstrap.css";
+@import '~bootstrap/dist/css/bootstrap.css';
 
 .page-header {
-  margin-top: -24px;
-  margin-bottom: -8px;
+    margin-top: -24px;
+    margin-bottom: -8px;
 }
 
 label.required:after {
-  color: #d00;
-  content: "*";
-  position: absolute;
-  margin-left: 5px;
+    color: #d00;
+    content: '*';
+    position: absolute;
+    margin-left: 5px;
 }
 
 .control-label {
-  margin-top: 15px;
+    margin-top: 15px;
 }
 
 input:placeholder-shown {
-  font-style: italic;
+    font-style: italic;
 }

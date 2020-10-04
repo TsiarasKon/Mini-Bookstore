@@ -1,32 +1,32 @@
 .details-img {
-  height: 360px;
-  width: 280px;
+    height: 360px;
+    width: 280px;
 }
 
 .details-rate ::ng-deep .ant-rate {
-  font-size: 35px;
-  margin-left: 35px;
+    font-size: 35px;
+    margin-left: 35px;
 }
 
 .author-name {
-  display: inline-block;
-  margin-left: 8px;
-  margin-top: 16px;
+    display: inline-block;
+    margin-left: 8px;
+    margin-top: 16px;
 }
 
 [nz-carousel-content] {
-  text-align: center;
-  height: 185px;
-  line-height: 160px;
-  background: #6c83b1;
-  color: #fff;
-  overflow: hidden;
+    text-align: center;
+    height: 185px;
+    line-height: 160px;
+    background: #6c83b1;
+    color: #fff;
+    overflow: hidden;
 }
 
 .book-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 [nz-carousel-content] ::ng-deep .ant-card-meta-title {

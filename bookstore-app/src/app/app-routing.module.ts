@@ -7,15 +7,15 @@ import { SearchPageComponent } from './components/search-page/search-page.compon
 
 // Regarding breadcrumbs' configuration, see related comment in app/components/layout.component.ts
 const routes: Routes = [
-  { path: 'search', component: SearchPageComponent },
-  { path: 'add', component: AddBooksPageComponent },
-  { path: 'book/:id', component: BookDetailsPageComponent },
-  { path: '', component: SearchPageComponent },
-  { path: '**', component: NotFoundPageComponent }
+    { path: 'search', component: SearchPageComponent },
+    { path: 'add', component: AddBooksPageComponent },
+    { path: 'book/:id', component: BookDetailsPageComponent },
+    { path: '', component: SearchPageComponent },
+    { path: '**', component: NotFoundPageComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

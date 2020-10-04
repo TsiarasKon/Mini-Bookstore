@@ -1,10 +1,1 @@
-export const TestCategories = [
-    'Action',
-    'Drama',
-    'Sci-fi',
-    'History',
-    'Crime',
-    'Politics',
-    'Fiction',
-    'Programming',
-]
+export const TestCategories = ['Action', 'Drama', 'Sci-fi', 'History', 'Crime', 'Politics', 'Fiction', 'Programming'];

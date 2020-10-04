@@ -56,7 +56,7 @@ registerLocaleData(en);
         AddBooksPageComponent,
         UploadImageComponent,
         TagExtendableArrayComponent,
-        BookDetailsPageComponent
+        BookDetailsPageComponent,
     ],
     imports: [
         BrowserModule,
@@ -86,12 +86,7 @@ registerLocaleData(en);
         NzBadgeModule,
         NzSpinModule,
     ],
-    providers: [
-        { provide: NZ_I18N, useValue: en_US },
-        BookService,
-        NzMessageService,
-        CartService,
-    ],
+    providers: [{ provide: NZ_I18N, useValue: en_US }, BookService, NzMessageService, CartService],
     bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

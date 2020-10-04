@@ -5,7 +5,7 @@ import { CartService } from 'src/app/services/cart-service/cart.service';
 @Component({
     selector: 'app-layout',
     templateUrl: './layout.component.html',
-    styleUrls: ['./layout.component.css']
+    styleUrls: ['./layout.component.css'],
 })
 export class LayoutComponent {
     breadcrumbsList: string[];
@@ -28,7 +28,8 @@ export class LayoutComponent {
                     case '/add':
                         this.breadcrumbsList = ['Book', 'Add'];
                         break;
-                    default:    // '/book/:id'
+                    default:
+                        // '/book/:id'
                         this.breadcrumbsList = ['Book'];
                 }
             }
@@ -39,5 +40,4 @@ export class LayoutComponent {
             this.cartNum++;
         });
     }
-
 }

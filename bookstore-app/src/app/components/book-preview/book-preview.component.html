@@ -1,11 +1,20 @@
-<nz-card nzHoverable [nzCover]="coverTemplate" [nzActions]="showRating ? [description] : []" class="book-card"
-  [routerLink]="['/book', book.id]" [ngStyle]="{'width': customWidth + 'px'}">
-  <nz-card-meta nzTitle="{{ book.title }}"></nz-card-meta>
+<nz-card
+    nzHoverable
+    [nzCover]="coverTemplate"
+    [nzActions]="showRating ? [description] : []"
+    class="book-card"
+    [routerLink]="['/book', book.id]"
+    [ngStyle]="{ width: customWidth + 'px' }"
+>
+    <nz-card-meta nzTitle="{{ book.title }}"></nz-card-meta>
 </nz-card>
 <ng-template #coverTemplate>
-  <img alt="example" src="{{ book.imageURI ? book.imageURI : 'assets/img/placeholder-image.png' }}"
-  [ngStyle]="{'height': customHeight + 'px'}"/>
+    <img
+        alt="example"
+        src="{{ book.imageURI ? book.imageURI : 'assets/img/placeholder-image.png' }}"
+        [ngStyle]="{ height: customHeight + 'px' }"
+    />
 </ng-template>
 <ng-template #description>
-  <nz-rate [ngModel]="book.rating" nzDisabled nzAllowHalf></nz-rate>
+    <nz-rate [ngModel]="book.rating" nzDisabled nzAllowHalf></nz-rate>
 </ng-template>

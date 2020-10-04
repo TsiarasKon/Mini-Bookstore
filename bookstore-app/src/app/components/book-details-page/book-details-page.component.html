@@ -1,59 +1,74 @@
 <nz-result nzStatus="404" *ngIf="!book" nzTitle="Not found" nzSubTitle="No book exists with id {{ bookId }}">
-  <div nz-result-extra>
-    <button nz-button nzType="primary"><a routerLink="/">Back Home</a></button>
-  </div>
+    <div nz-result-extra>
+        <button nz-button nzType="primary">
+            <a routerLink="/">Back Home</a>
+        </button>
+    </div>
 </nz-result>
 <div *ngIf="book" class="container">
-  <div class="row">
-    <div class="col-4">
-      <img class="details-img" alt="example"
-        src="{{ book.imageURI ? book.imageURI : 'assets/img/placeholder-image.png' }}" />
-      <br />
-      <div *ngFor="let author of book.authors">
-        <nz-avatar nzSize="large" nzIcon="user"></nz-avatar>
-        <h4 class="author-name">{{ author }}</h4>
-      </div>
-      <nz-rate class="details-rate mt-1" [ngModel]="book.rating" nzDisabled nzAllowHalf></nz-rate>
-    </div>
-
-    <div class="col-8 pl-4">
-      <h2>{{ book.title }}</h2>
-      <p class="lead">{{ book.description }}</p>
-      <div class="mb-3">
-        <button type="button" class="btn btn-outline-danger btn-sm" (click)="toggleFavorite()" *ngIf="!isFavorite"><i
-            nz-icon nzType="heart" nzTheme="fill"></i> Favorite</button>
-        <button type="button" class="btn btn-danger btn-sm" (click)="toggleFavorite()" *ngIf="isFavorite"><i nz-icon
-            nzType="heart" nzTheme="fill"></i> Unfavorite</button>
-        <button type="button" class="btn btn-outline-info btn-sm ml-3" (click)="onShareClick()">Share</button>
-      </div>
-      <p>
-        <strong>Categories: </strong><nz-tag *ngFor="let cat of book.categories">{{ cat }}</nz-tag> <br />
-      </p>
-      <p>
-        <strong>Published Year: </strong> {{ book.publishedYear }} <br />
-        <strong>Number of Pages: </strong> {{ book.pages }}
-      </p>
-      <p><strong>Publisher: </strong> {{ book.publisher }} </p>
-      <p>
-        <strong>ISBN-10: </strong> {{ book.isbn10 ? book.isbn10 : '-' }} <br />
-        <strong>ISBN-13: </strong> {{ book.isbn13 }}
-      </p>
-      <div class="row justify-content-center">
-        <div class="col-6">
-          <button type="button" class="btn btn-primary btn-block" (click)="onBuyClicked()">BUY</button>
+    <div class="row">
+        <div class="col-4">
+            <img
+                class="details-img"
+                alt="example"
+                src="{{ book.imageURI ? book.imageURI : 'assets/img/placeholder-image.png' }}"
+            />
+            <br />
+            <div *ngFor="let author of book.authors">
+                <nz-avatar nzSize="large" nzIcon="user"></nz-avatar>
+                <h4 class="author-name">{{ author }}</h4>
+            </div>
+            <nz-rate class="details-rate mt-1" [ngModel]="book.rating" nzDisabled nzAllowHalf></nz-rate>
         </div>
-      </div>
+
+        <div class="col-8 pl-4">
+            <h2>{{ book.title }}</h2>
+            <p class="lead">{{ book.description }}</p>
+            <div class="mb-3">
+                <button
+                    type="button"
+                    class="btn btn-outline-danger btn-sm"
+                    (click)="toggleFavorite()"
+                    *ngIf="!isFavorite"
+                >
+                    <i nz-icon nzType="heart" nzTheme="fill"></i> Favorite
+                </button>
+                <button type="button" class="btn btn-danger btn-sm" (click)="toggleFavorite()" *ngIf="isFavorite">
+                    <i nz-icon nzType="heart" nzTheme="fill"></i> Unfavorite
+                </button>
+                <button type="button" class="btn btn-outline-info btn-sm ml-3" (click)="onShareClick()">Share</button>
+            </div>
+            <p>
+                <strong>Categories: </strong><nz-tag *ngFor="let cat of book.categories">{{ cat }}</nz-tag>
+                <br />
+            </p>
+            <p>
+                <strong>Published Year: </strong> {{ book.publishedYear }}
+                <br />
+                <strong>Number of Pages: </strong> {{ book.pages }}
+            </p>
+            <p><strong>Publisher: </strong> {{ book.publisher }}</p>
+            <p>
+                <strong>ISBN-10: </strong>
+                {{ book.isbn10 ? book.isbn10 : '-' }} <br />
+                <strong>ISBN-13: </strong> {{ book.isbn13 }}
+            </p>
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <button type="button" class="btn btn-primary btn-block" (click)="onBuyClicked()">BUY</button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 <h4 *ngIf="book" class="page-header mb-2 mt-5">Other Books you may like</h4>
 <h4 *ngIf="!book" class="page-header mb-2 mt-5">But fear not! Here are some Books you may like</h4>
 <nz-carousel nzAutoPlay [nzAutoPlaySpeed]="5000" [nzEnableSwipe]="false">
-  <div nz-carousel-content *ngFor="let booksArray of carouselBooksArray">
-    <div class="book-container mt-3">
-      <div *ngFor="let b of booksArray">
-        <book-preview [book]="b" [customWidth]="200" [customHeight]="226" [showRating]="false"></book-preview>
-      </div>
+    <div nz-carousel-content *ngFor="let booksArray of carouselBooksArray">
+        <div class="book-container mt-3">
+            <div *ngFor="let b of booksArray">
+                <book-preview [book]="b" [customWidth]="200" [customHeight]="226" [showRating]="false"></book-preview>
+            </div>
+        </div>
     </div>
-  </div>
 </nz-carousel>

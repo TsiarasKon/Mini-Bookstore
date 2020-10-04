@@ -1,160 +1,171 @@
 <h2 class="page-header text-center">Add New Book</h2>
 <form class="container p-3" [formGroup]="addForm" (ngSubmit)="submitForm()">
-  <div class="form-row row">
-    <div class="form-group col-8">
-      <label class="control-label required" for="title">Title</label>
-      <input class="form-control" id="title" formControlName="title">
-      <div *ngIf="addForm.controls.title.dirty && addForm.controls.title.touched" class="text-danger">
-        <div *ngIf="addForm.controls.title.errors?.required">
-          This field is required
-        </div>
-        <div *ngIf="addForm.controls.title.errors?.minlength">
-          <!-- Getting the required length from the error itself instead of hardcoding it in this message for easier future refactors: -->
-          The minimum length for this field is {{ addForm.controls.title.errors.minlength.requiredLength }} characters
-        </div>
-        <div *ngIf="addForm.controls.title.errors?.maxlength">
-          The maximum length for this field is {{ addForm.controls.title.errors.maxlength.requiredLength }} characters
-        </div>
-        <div *ngIf="addForm.controls.title.errors?.pattern">
-          Special characters other than @"#&*! are not allowed
-        </div>
-      </div>
+    <div class="form-row row">
+        <div class="form-group col-8">
+            <label class="control-label required" for="title">Title</label>
+            <input class="form-control" id="title" formControlName="title" />
+            <div *ngIf="addForm.controls.title.dirty && addForm.controls.title.touched" class="text-danger">
+                <div *ngIf="addForm.controls.title.errors?.required">This field is required</div>
+                <div *ngIf="addForm.controls.title.errors?.minlength">
+                    <!-- Getting the required length from the error itself instead of hardcoding it in this message for easier future refactors: -->
+                    The minimum length for this field is
+                    {{ addForm.controls.title.errors.minlength.requiredLength }}
+                    characters
+                </div>
+                <div *ngIf="addForm.controls.title.errors?.maxlength">
+                    The maximum length for this field is
+                    {{ addForm.controls.title.errors.maxlength.requiredLength }}
+                    characters
+                </div>
+                <div *ngIf="addForm.controls.title.errors?.pattern">
+                    Special characters other than @"#&*! are not allowed
+                </div>
+            </div>
 
-      <label class="control-label required" for="title">Description</label>
-      <textarea class="form-control" id="description" formControlName="description" rows="3"></textarea>
-      <div *ngIf="addForm.controls.description.dirty && addForm.controls.description.touched" class="text-danger">
-        <div *ngIf="addForm.controls.description.errors?.required">
-          This field is required
-        </div>
-        <div *ngIf="addForm.controls.description.errors?.maxlength">
-          The maximum length for this field is {{ addForm.controls.description.errors.maxlength.requiredLength }} characters
-        </div>
-        <div *ngIf="addForm.controls.description.errors?.pattern">
-          Description must start with an uppercase letter
-        </div>
-      </div>
+            <label class="control-label required" for="title">Description</label>
+            <textarea class="form-control" id="description" formControlName="description" rows="3"></textarea>
+            <div *ngIf="addForm.controls.description.dirty && addForm.controls.description.touched" class="text-danger">
+                <div *ngIf="addForm.controls.description.errors?.required">This field is required</div>
+                <div *ngIf="addForm.controls.description.errors?.maxlength">
+                    The maximum length for this field is
+                    {{ addForm.controls.description.errors.maxlength.requiredLength }}
+                    characters
+                </div>
+                <div *ngIf="addForm.controls.description.errors?.pattern">
+                    Description must start with an uppercase letter
+                </div>
+            </div>
 
-      <label class="control-label">
-        <label class="required" for="categories">Categories</label>
-        <div class="text-secondary"><i>Select from the existing ones or write your own!</i></div>
-      </label>
-      <nz-select nzMode="tags" nzPlaceHolder="Tag Mode" formControlName="categories">
-        <nz-option *ngFor="let option of categoriesOptions" [nzLabel]="option.label" [nzValue]="option.value">
-        </nz-option>
-      </nz-select>
-      <div *ngIf="addForm.controls.categories.dirty && addForm.controls.categories.touched" class="text-danger">
-        <div *ngIf="addForm.controls.categories.errors?.required">
-          At least 1 category is required
-        </div>
-        <div *ngIf="addForm.controls.categories.errors?.maxlength">
-          The maximum allowed categories are {{ addForm.controls.categories.errors.maxlength.requiredLength }}
-        </div>
-      </div>
+            <label class="control-label">
+                <label class="required" for="categories">Categories</label>
+                <div class="text-secondary">
+                    <i>Select from the existing ones or write your own!</i>
+                </div>
+            </label>
+            <nz-select nzMode="tags" nzPlaceHolder="Tag Mode" formControlName="categories">
+                <nz-option *ngFor="let option of categoriesOptions" [nzLabel]="option.label" [nzValue]="option.value">
+                </nz-option>
+            </nz-select>
+            <div *ngIf="addForm.controls.categories.dirty && addForm.controls.categories.touched" class="text-danger">
+                <div *ngIf="addForm.controls.categories.errors?.required">At least 1 category is required</div>
+                <div *ngIf="addForm.controls.categories.errors?.maxlength">
+                    The maximum allowed categories are
+                    {{ addForm.controls.categories.errors.maxlength.requiredLength }}
+                </div>
+            </div>
 
-      <label class="control-label required" for="authors">Authors</label><br />
-      <app-tag-extendable-array (tagArray)="updateAuthors($event)" [addMsg]="' Add Author'" [maxLen]="3">
-      </app-tag-extendable-array>
-      <div *ngIf="addForm.controls.authors.dirty && addForm.controls.authors.touched" class="text-danger">
-        <div *ngIf="addForm.controls.authors.errors?.required">
-          At least 1 author is required
+            <label class="control-label required" for="authors">Authors</label><br />
+            <app-tag-extendable-array (tagArray)="updateAuthors($event)" [addMsg]="' Add Author'" [maxLen]="3">
+            </app-tag-extendable-array>
+            <div *ngIf="addForm.controls.authors.dirty && addForm.controls.authors.touched" class="text-danger">
+                <div *ngIf="addForm.controls.authors.errors?.required">At least 1 author is required</div>
+                <div *ngIf="addForm.controls.authors.errors?.maxlength">
+                    The maximum allowed authors are
+                    {{ addForm.controls.authors.errors.maxlength.requiredLength }}
+                </div>
+            </div>
         </div>
-        <div *ngIf="addForm.controls.authors.errors?.maxlength">
-          The maximum allowed authors are {{ addForm.controls.authors.errors.maxlength.requiredLength }}
-        </div>
-      </div>
 
+        <div class="form-group col-4 text-center mt-5">
+            <app-upload-image (imageUploaded)="onImageUpload($event)"></app-upload-image>
+        </div>
     </div>
 
-    <div class="form-group col-4 text-center mt-5">
-      <app-upload-image (imageUploaded)="onImageUpload($event)"></app-upload-image>
+    <div class="form-row row" style="margin-top: -15px">
+        <div class="form-group col-8">
+            <label class="control-label required" for="publisher">Publisher</label>
+            <input class="form-control" id="publisher" formControlName="publisher" />
+            <div *ngIf="addForm.controls.publisher.dirty && addForm.controls.publisher.touched" class="text-danger">
+                <div *ngIf="addForm.controls.publisher.errors?.required">This field is required</div>
+                <div *ngIf="addForm.controls.publisher.errors?.minlength">
+                    The minimum length for this field is
+                    {{ addForm.controls.publisher.errors.minlength.requiredLength }}
+                    characters
+                </div>
+                <div *ngIf="addForm.controls.publisher.errors?.maxlength">
+                    The maximum length for this field is
+                    {{ addForm.controls.publisher.errors.maxlength.requiredLength }}
+                    characters
+                </div>
+            </div>
+
+            <label class="control-label required" for="publishedYear">Published Year</label>
+            <nz-date-picker class="form-control" formControlName="publishedYear" nzMode="year" style="width: 150px">
+            </nz-date-picker>
+            <div
+                *ngIf="addForm.controls.publishedYear.dirty && addForm.controls.publishedYear.touched"
+                class="text-danger"
+            >
+                <div *ngIf="addForm.controls.publishedYear.errors?.required">This field is required</div>
+            </div>
+
+            <label class="control-label required" for="pages">Page Number</label>
+            <input
+                class="form-control"
+                id="pages"
+                formControlName="pages"
+                type="number"
+                min="0"
+                max="9999"
+                step="1"
+                style="width: 20%"
+            />
+            <div *ngIf="addForm.controls.pages.dirty && addForm.controls.pages.touched" class="text-danger">
+                <div *ngIf="addForm.controls.pages.errors?.required">This field is required</div>
+                <div *ngIf="addForm.controls.pages.errors?.min || addForm.controls.pages.errors?.pattern">
+                    The number of pages must be a positive integer
+                </div>
+                <div *ngIf="addForm.controls.pages.errors?.max">
+                    The maximum value for this field is
+                    {{ addForm.controls.pages.errors.max.max }} pages
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-4">
+            <label class="control-label required" for="rating">Rating</label>
+            <input
+                class="form-control"
+                id="rating"
+                formControlName="rating"
+                type="number"
+                min="0"
+                max="5"
+                step="0.5"
+                style="width: 35%"
+            />
+            <div *ngIf="addForm.controls.rating.dirty && addForm.controls.rating.touched" class="text-danger">
+                <div *ngIf="addForm.controls.rating.errors?.required">This field is required</div>
+                <div *ngIf="addForm.controls.rating.errors?.min">
+                    The minimum rating is
+                    {{ addForm.controls.rating.errors.min.min }}
+                </div>
+                <div *ngIf="addForm.controls.rating.errors?.max">
+                    The maximum rating is
+                    {{ addForm.controls.rating.errors.max.max }}
+                </div>
+                <div *ngIf="addForm.controls.rating.errors?.pattern">
+                    The only decimal rating allowed is in the form of .5
+                </div>
+            </div>
+
+            <label class="control-label required" for="isbn10">ISBN-10</label>
+            <input class="form-control" id="isbn10" formControlName="isbn10" type="number" />
+            <div *ngIf="addForm.controls.isbn10.dirty && addForm.controls.isbn10.touched" class="text-danger">
+                <div *ngIf="addForm.controls.isbn10.errors?.required">This field is required</div>
+                <div *ngIf="addForm.controls.isbn10.errors?.pattern">A valid ISBN-10 consists of exactly 10 digits</div>
+            </div>
+
+            <label class="control-label required" for="isbn13">ISBN-13</label>
+            <input class="form-control" id="isbn13" formControlName="isbn13" type="number" />
+            <div *ngIf="addForm.controls.isbn13.dirty && addForm.controls.isbn13.touched" class="text-danger">
+                <div *ngIf="addForm.controls.isbn13.errors?.required">This field is required</div>
+                <div *ngIf="addForm.controls.isbn13.errors?.pattern">A valid ISBN-13 consists of exactly 13 digits</div>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <div class="form-row row" style="margin-top: -15px;">
-    <div class="form-group col-8">
-      <label class="control-label required" for="publisher">Publisher</label>
-      <input class="form-control" id="publisher" formControlName="publisher">
-      <div *ngIf="addForm.controls.publisher.dirty && addForm.controls.publisher.touched" class="text-danger">
-        <div *ngIf="addForm.controls.publisher.errors?.required">
-          This field is required
-        </div>
-        <div *ngIf="addForm.controls.publisher.errors?.minlength">
-          The minimum length for this field is {{ addForm.controls.publisher.errors.minlength.requiredLength }}
-          characters
-        </div>
-        <div *ngIf="addForm.controls.publisher.errors?.maxlength">
-          The maximum length for this field is {{ addForm.controls.publisher.errors.maxlength.requiredLength }}
-          characters
-        </div>
-      </div>
-
-      <label class="control-label required" for="publishedYear">Published Year</label>
-      <nz-date-picker class="form-control" formControlName="publishedYear" nzMode="year" style="width: 150px;">
-      </nz-date-picker>
-      <div *ngIf="addForm.controls.publishedYear.dirty && addForm.controls.publishedYear.touched" class="text-danger">
-        <div *ngIf="addForm.controls.publishedYear.errors?.required">
-          This field is required
-        </div>
-      </div>
-
-      <label class="control-label required" for="pages">Page Number</label>
-      <input class="form-control" id="pages" formControlName="pages" type="number" min="0" max="9999" step="1" style="width: 20%;">
-      <div *ngIf="addForm.controls.pages.dirty && addForm.controls.pages.touched" class="text-danger">
-        <div *ngIf="addForm.controls.pages.errors?.required">
-          This field is required
-        </div>
-        <div *ngIf="addForm.controls.pages.errors?.min || addForm.controls.pages.errors?.pattern">
-          The number of pages must be a positive integer
-        </div>
-        <div *ngIf="addForm.controls.pages.errors?.max">
-          The maximum value for this field is {{ addForm.controls.pages.errors.max.max }} pages
-        </div>
-      </div>
+    <div class="text-center">
+        <button class="btn btn-primary btn-lg" type="submit">SAVE</button>
     </div>
-
-    <div class="form-group col-4">
-      <label class="control-label required" for="rating">Rating</label>
-      <input class="form-control" id="rating" formControlName="rating" type="number" min="0" max="5" step="0.5" style="width: 35%;">
-      <div *ngIf="addForm.controls.rating.dirty && addForm.controls.rating.touched" class="text-danger">
-        <div *ngIf="addForm.controls.rating.errors?.required">
-          This field is required
-        </div>
-        <div *ngIf="addForm.controls.rating.errors?.min">
-          The minimum rating is {{ addForm.controls.rating.errors.min.min }}
-        </div>
-        <div *ngIf="addForm.controls.rating.errors?.max">
-          The maximum rating is {{ addForm.controls.rating.errors.max.max }}
-        </div>
-        <div *ngIf="addForm.controls.rating.errors?.pattern">
-          The only decimal rating allowed is in the form of .5
-        </div>
-      </div>
-
-      <label class="control-label required" for="isbn10">ISBN-10</label>
-      <input class="form-control" id="isbn10" formControlName="isbn10" type="number">
-      <div *ngIf="addForm.controls.isbn10.dirty && addForm.controls.isbn10.touched" class="text-danger">
-        <div *ngIf="addForm.controls.isbn10.errors?.required">
-          This field is required
-        </div>
-        <div *ngIf="addForm.controls.isbn10.errors?.pattern">
-          A valid ISBN-10 consists of exactly 10 digits
-        </div>
-      </div>
-
-      <label class="control-label required" for="isbn13">ISBN-13</label>
-      <input class="form-control" id="isbn13" formControlName="isbn13" type="number">
-      <div *ngIf="addForm.controls.isbn13.dirty && addForm.controls.isbn13.touched" class="text-danger">
-        <div *ngIf="addForm.controls.isbn13.errors?.required">
-          This field is required
-        </div>
-        <div *ngIf="addForm.controls.isbn13.errors?.pattern">
-          A valid ISBN-13 consists of exactly 13 digits
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="text-center">
-    <button class="btn btn-primary btn-lg" type="submit">SAVE</button>
-  </div>
 </form>

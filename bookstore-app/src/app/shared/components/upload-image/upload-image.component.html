@@ -1,9 +1,15 @@
-<nz-upload class="avatar-uploader" nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76" nzName="avatar"
-  nzListType="picture-card" [nzShowUploadList]="false" [nzBeforeUpload]="beforeUpload"
-  (nzChange)="handleChange($event)">
-  <ng-container *ngIf="!imageUri">
-    <i class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></i>
-    <div class="ant-upload-text">&nbsp;Import image</div>
-  </ng-container>
-  <img *ngIf="imageUri" [src]="imageUri" style="width: 100%" />
+<nz-upload
+    class="avatar-uploader"
+    nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+    nzName="avatar"
+    nzListType="picture-card"
+    [nzShowUploadList]="false"
+    [nzBeforeUpload]="beforeUpload"
+    (nzChange)="handleChange($event)"
+>
+    <ng-container *ngIf="!imageUri">
+        <i class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></i>
+        <div class="ant-upload-text">&nbsp;Import image</div>
+    </ng-container>
+    <img *ngIf="imageUri" [src]="imageUri" style="width: 100%" />
 </nz-upload>
