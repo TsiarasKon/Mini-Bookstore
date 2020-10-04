@@ -33,6 +33,7 @@ export class BookDetailsPageComponent implements OnInit {
       this.isFavorite = this.book.favorite;
       console.log(this.book);
     })
+    // We would normally use a personalized subset of the total books based on some recommendation algorithm
     this.carouselBooksArray = [...chunks(this.bookService.getBooks(), 4)];
   }
 

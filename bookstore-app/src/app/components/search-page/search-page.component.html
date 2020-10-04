@@ -11,7 +11,7 @@
   <div class="form-row row">
     <div class="form-group col-5">
       <label for="categories">Categories</label>
-      <nz-select nzMode="multiple" nzPlaceHolder="Please select" formControlName="categories">
+      <nz-select nzMode="multiple" nzPlaceHolder="Select any number of categories" formControlName="categories">
         <nz-option *ngFor="let item of categoriesOptions" [nzLabel]="item" [nzValue]="item"></nz-option>
       </nz-select>
     </div>

@@ -18,7 +18,7 @@ export const generateBook = (book): IBook => {
         publisher: book.publisher,
         pages: book.pages,
         description: book.description,
-        // imageURI: TODO,
+        imageURI: `assets/img/test-book-covers/${book.isbn}.jpg`,
         categories: ['Programming'],
         rating: generateRandomRating(),
     }
